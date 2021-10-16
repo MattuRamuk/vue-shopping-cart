@@ -1,55 +1,59 @@
 <template>
   <div>
     <v-app-bar
-      color="deep-purple accent-4"
+      color="info accent-4"
       dense
       dark
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      
+      <v-toolbar-title>
+        <router-link 
+          to="/"
+          tag="span"
+          style="cursor: pointer"
+          >
+          {{appName}}
+        </router-link>
+      </v-toolbar-title>
+      <v-btn class="ml-2">
+        <router-link
+          to="/ProductList"
+          tag="span"
+          exact-active-class="active"
+        >
+        <span>Products</span>
+        
+        </router-link>
+        
+      </v-btn>
 
-      <v-toolbar-title>Page title</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
+        <router-link
+          to="/cart"
+          tag="span"
+
+        >
+          <v-icon>mdi-cart</v-icon>
+        </router-link>
+        
       </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-menu
-        left
-        bottom
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            v-on="on"
-          >
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </template>
-
-        <v-list>
-          <v-list-item
-            v-for="n in 5"
-            :key="n"
-            @click="() => {}"
-          >
-            <v-list-item-title>Option {{ n }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+     
     </v-app-bar>
   </div>
 </template>
 
 <script>
 export default {
-
+  data()
+  {
+    return {
+      appName : 'Shopping Cart'
+    }
+  }
 }
 </script>
 
